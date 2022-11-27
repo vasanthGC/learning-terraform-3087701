@@ -16,7 +16,6 @@ data "aws_ami" "app_ami" {
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  version = "3.18.1"
 
   name = "dev"
   cidr = "10.0.0.0/16"
@@ -39,7 +38,7 @@ resource "aws_instance" "blog" {
   vpc_security_group_ids = [module.blog_sg.security_group_id]
 
   tags = {
-    Name = "HelloWorld"
+    Name = "HelloWorld2"
   }
 }
 

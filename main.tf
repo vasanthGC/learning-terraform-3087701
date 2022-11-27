@@ -22,7 +22,7 @@ resource "aws_instance" "blog" {
   instance_type = var.instance_type
 
   vpc_security_group_ids = [aws_security_group.blog.id]
-  
+
   tags = {
     Name = "HelloWorld"
   }
@@ -52,7 +52,7 @@ resource "aws_security_group_rule" "blog_https_in" {
   protocol = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 
-  aws_group_id = aws_security_group.blog.id
+  aws_security_group_id = aws_security_group.blog.id
 }
 
 resource "aws_security_group_rule" "blog_everything_out" {
